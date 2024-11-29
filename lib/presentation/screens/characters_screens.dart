@@ -2,9 +2,7 @@ import 'package:breakingapi/business_layer/cubit/characters_cubit.dart';
 import 'package:breakingapi/constans/colors.dart';
 import 'package:breakingapi/data/models/character_model.dart';
 import 'package:breakingapi/presentation/widgets/character_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
@@ -46,7 +44,7 @@ class _CharacterScreenState extends State<CharacterScreen> {
             borderRadius: BorderRadius.circular(20)
           ),
            hintText: "search",
-            hintStyle: TextStyle(fontSize: 16,color: Colors.black87),
+            hintStyle: const TextStyle(fontSize: 16,color: Colors.black87),
         ),
         onChanged: (searchedForResult){
           addSearchedItem(searchedForResult);
@@ -85,8 +83,8 @@ class _CharacterScreenState extends State<CharacterScreen> {
           SingleChildScrollView(
             child: Column(
             children: [
-              SizedBox(height: 20,),
-              SizedBox(height: 40),
+              const SizedBox(height: 20,),
+              const SizedBox(height: 40),
               characterList(),
             ],
                       ),

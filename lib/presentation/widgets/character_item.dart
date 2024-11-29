@@ -1,4 +1,5 @@
 import 'package:breakingapi/constans/colors.dart';
+import 'package:breakingapi/constans/strings.dart';
 import 'package:breakingapi/data/models/character_model.dart';
 import 'package:flutter/material.dart';
 
@@ -16,29 +17,35 @@ class CharacterItem extends StatelessWidget {
         color: MyColors.white,
         borderRadius: BorderRadius.circular(8)
       ),
-      child: GridTile(
-        footer: Container(
-          width: double.infinity,
+      child: InkWell(
+        onTap: ()=>Navigator.pushNamed(context, characterDetailsScreen,arguments: result),
+        child: GridTile(
+          footer: Hero(
+            tag: result.id,
+            child: Container(
+              width: double.infinity,
 
-          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-          color: Colors.black87,
-          alignment: Alignment.bottomCenter,
-          child: Text(result.name,
-          style: const TextStyle(
-            height: 1.3,
-            fontSize: 16,
-            color: MyColors.white,
-            fontWeight: FontWeight.bold
+              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              color: Colors.black87,
+              alignment: Alignment.bottomCenter,
+              child: Text(result.name,
+              style: const TextStyle(
+                height: 1.3,
+                fontSize: 16,
+                color: MyColors.white,
+                fontWeight: FontWeight.bold
+              ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        child: Container(
-          color: MyColors.grey,
+          child: Container(
+            color: MyColors.grey,
 
-          child:Image.network(result.image,fit: BoxFit.cover,),
+            child:Image.network(result.image,fit: BoxFit.cover,),
+          ),
         ),
       ),
     );

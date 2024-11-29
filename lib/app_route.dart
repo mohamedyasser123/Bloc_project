@@ -1,5 +1,6 @@
 import 'package:breakingapi/business_layer/cubit/characters_cubit.dart';
 import 'package:breakingapi/constans/strings.dart';
+import 'package:breakingapi/data/models/character_model.dart';
 import 'package:breakingapi/data/repository/chracaters_repository.dart';
 import 'package:breakingapi/data/web_service/charactars_web_service.dart';
 import 'package:breakingapi/presentation/screens/charachers_details_screen.dart';
@@ -27,8 +28,9 @@ class AppRoute {
           ),
         );
       case characterDetailsScreen:
+        final result=settings.arguments as Result;
         return MaterialPageRoute(
-          builder: (_) => const CharacterDetailsScreen(),
+          builder: (_) =>  CharacterDetailsScreen(result: result),
         );
       default:
         return null;

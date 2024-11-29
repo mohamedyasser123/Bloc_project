@@ -60,9 +60,9 @@ class Result {
   final int id;
   final String name;
   final Status status;
-  final Species species;
+  final String species;
   final String type;
-  final Gender gender;
+  final String gender;
   final Location origin;
   final Location location;
   final String image;
@@ -93,9 +93,9 @@ class Result {
     id: json["id"],
     name: json["name"],
     status: statusValues.map[json["status"]]!,
-    species: speciesValues.map[json["species"]]!,
+    species: json["species"],
     type: json["type"],
-    gender: genderValues.map[json["gender"]]!,
+    gender: json["gender"],
     origin: Location.fromJson(json["origin"]),
     location: Location.fromJson(json["location"]),
     image: json["image"],
@@ -108,9 +108,9 @@ class Result {
     "id": id,
     "name": name,
     "status": statusValues.reverse[status],
-    "species": speciesValues.reverse[species],
+    "species": species,
     "type": type,
-    "gender": genderValues.reverse[gender],
+    "gender": gender,
     "origin": origin.toJson(),
     "location": location.toJson(),
     "image": image,
